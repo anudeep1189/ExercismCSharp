@@ -7,29 +7,13 @@ public static class Leap
       //evenly divisible by 100
       //if it is divisible by 100 it should also be divisible by 400
       //Except this, all other years evenly divisible by 4 are leap years.
-
-      if(year%4 == 0)
+ if ((year % 4 == 0 ) && (year % 100 != 0 || year % 400 == 0))
       {
-        if(year%100 == 0)
-            {
-                if(year%400 == 0)
-                {     
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
+          return true;
       }
-      else
-      {
+    else
+    {
           return false;
-      }
-   
+    }
     }
 }
