@@ -1,28 +1,31 @@
 ﻿using System;
 
+
 public static class Pangram
 {
     public static bool IsPangram(string input)
     {
         int i = 0;
-        char[] Alphabets;
-        Alphabets = new char[]{'a', 'b', 'c', 'd','e','f','g','h','i','j',
-                'k','l','m','n','o','p','q','u','r','s','t','u','v','w','x','y','z'};
+
+            string Alphabets = "abcdefghijklmnopqrstuvwxyz";
             
+            input = input.ToLower();
             foreach (char alpha in Alphabets)
             {
-                foreach (char inputChar in input.ToLower())
+                foreach (char inputChar in input)
                 {
+                   
                     if (alpha == inputChar)
                     {
                         i++;
                         break;
-                    }
+                    } 
                 }
             }
-            if(i == 27)
+            if(i == 26)
             {
                 return true;
+
             }
             else
             {
