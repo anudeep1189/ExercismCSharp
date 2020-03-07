@@ -5,31 +5,26 @@ public static class Pangram
 {
     public static bool IsPangram(string input)
     {
-        int i = 0;
+        bool[] isAlphabetarr = new bool[26];//default all value will be false
+        input = input.ToLower();
 
-            string Alphabets = "abcdefghijklmnopqrstuvwxyz";
-            
-            input = input.ToLower();
-            foreach (char alpha in Alphabets)
+        for (int i = 0; i < input.Length; i++)
+        {
+            //value of a = 97 and z = 122
+            if ('a' <= input[i] && 'z' >= input[i])
             {
-                foreach (char inputChar in input)
-                {
-                   
-                    if (alpha == inputChar)
-                    {
-                        i++;
-                        break;
-                    } 
-                }
+                isAlphabetarr[input[i] - 'a'] = true;   //array number represent alpabets a-z = 0 - 25 respectively
             }
-            if(i == 26)
-            {
-                return true;
+        }
 
-            }
-            else
+        for (int j = 0; j <= 25; j++)    //check if any value in the array is false
+        {
+            if (isAlphabetarr[j] == false)
             {
                 return false;
             }
+        }
+
+        return true; // if all are present
     }
 }
